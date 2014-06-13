@@ -1,0 +1,82 @@
+# source global defs
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# aliases
+alias m='less'
+alias x='emacs'
+alias ls='ls -G'
+alias la='ls -Gal'
+alias lt='ls -Galt'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# set command history size
+HISTFILESIZE=1000000000
+HISTSIZE=1000000
+
+
+# prompt
+# red(31), green(32), yellow(33), blue(34), purple(35), cyan(36), white(37)
+# username(\u), directory(\W), partial hostname(\h), full hostname(\H)
+source ~/.git-prompt.sh
+PS1="\[\e[32;1m\]\u \w\e[0;35m$(__git_ps1)\$ "
+PS1="\[\033[0;32m\]\u \w\[\033[0;35m\]$(__git_ps1)\[\033[0;32m\]$\[\033[m\] "
+
+
+# More aliases
+alias emacsbashrc='emacs ~/.bashrc'
+alias sourcebashrc='source ~/.bashrc'
+alias gs='git status'
+
+alias chrome="/Applications/Google\\ \\Chrome.app/Contents/MacOS/Google\\ \\Chrome"
+alias chromex="chrome --allow-file-access-from-files"
+alias s='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
+
+alias cdss='cd ~/code/signalsense'
+alias cdsss='cd ~/code/signalsense/scratch'
+alias cdssg='cd ~/code/signalsense/gasper'
+alias cdssc='cd ~/code/signalsense/cudamat'
+alias cdssb='cd ~/code/signalsense/scratch/boa'
+alias cdnl='cd ~/sig/log/netlog'
+alias cddt='cd ~/data'
+
+
+# Path
+export PATH='/usr/local/bin':$PATH
+
+# Environment Variables
+export JAVA_HOME=`/usr/libexec/java_home`
+export SCALA_HOME='/usr/local/Cellar/scala/2.9.3/libexec'
+#export SCALA_HOME='/usr/local/Cellar/scala/2.10.2/'
+export SPARK_HOME='/Users/brighama/bin/spark/spark-0.8.0-incubating'
+export PATH='/Users/brighama/Dropbox/code/python/bsa_common':$PATH
+export PATH='/usr/local/Cellar/qt/4.8.5/bin':$PATH
+
+# GraphicsMagick fixes
+export DYLD_FALLBACK_LIBRARY_PATH=/usr/local/Cellar/graphicsmagick/1.3.19_1/lib/:$DYLD_FALLBACK_LIBRARY_PATH
+
+# Theano fixes
+export THEANO_FLAGS=cmodule.mac_framework_link=False
+export DYLD_FALLBACK_LIBRARY_PATH=~/anaconda/lib:$DYLD_FALLBACK_LIBRARY_PATH
+
+# CUDA
+export PATH='/Developer/NVIDIA/CUDA-5.5/bin':$PATH
+export DYLD_LIBRARY_PATH='/Developer/NVIDIA/CUDA-5.5/lib':$DYLD_LIBRARY_PATH
+
+# SignalSense
+export PYTHONPATH=$PYTHONPATH:~/code/signalsense/gasper
+export PYTHONPATH=$PYTHONPATH:~/code/signalsense/scratch/boa
+export PYTHONPATH=$PYTHONPATH:~/Dropbox/code/python/bsa_common
+export REPO_GASPER_PATH=~/code/signalsense/gasper
+export SIGNALSENSE_DATADIR=~/sig/data
+export SIGNALSENSE_LOGDIR=~/sig/log
+export SIGNALSENSE_OUTDIR=~/sig/out
+
+# Pylearn2
+export PYLEARN2_DATA_PATH=~/data
+
+# Pycharm
+alias pycharm=Applications/PyCharm.app/Contents/MacOS/pycharm
